@@ -11,7 +11,7 @@ library(RCurl) #to check if url exists
 ##Get groups with corresponding URLs
 #URL <- "https://docs.google.com/spreadsheets/d/1V5J_TuhfZTFBfPcg1JMavzFrbB2vavd3JMNX1f1oAQw/edit#gid=420394624"
 #URL <- "https://docs.google.com/spreadsheets/d/13-F4sAcX5Ph-IKp0W8uTRfT1RmUeEGbwtK7PMVUylws/edit#gid=0"
-gsheet_links <- read.csv("databases/gsheet_links.csv", as.is=TRUE)
+gsheet_links <- read.csv("/var/lib/apps/k12_database/gsheet_links.csv", as.is=TRUE)
 message = NULL
 group_status = FALSE
   
@@ -44,7 +44,7 @@ for (i in c(1:dim(gsheet_links)[[1]])) {
 }
 
 if (dim(all_crowdsourced_data)[1]==0){
-  all_crowdsourced_data <- readRDS("databases/AirQualityData_15thJuly_2019.RDS")
+  all_crowdsourced_data <- readRDS("/var/lib/apps/k12_database/AirQualityData_15thJuly_2019.RDS")
   message = "Warning: no contents in provided google sheets so old data loaded"
   group_status = FALSE
 }
@@ -73,21 +73,21 @@ clrs <- c("#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7","#757
 #########################################
 
 #Get PM2.5 data from EPA file
-k12_df <- read.csv("databases/k12_sites.csv")
-ph_df <- read.csv("databases/all_k12_sites_PM.csv")
+k12_df <- read.csv("/var/lib/apps/k12_database/k12_sites.csv")
+ph_df <- read.csv("/var/lib/apps/k12_database/all_k12_sites_PM.csv")
 months <- c("Jan","Feb","Mar","Apr","May","June","Jul","Aug","Sept","Oct","Nov","Dec")
 ph_df$Year <- as.factor(ph_df$Year)
 ph_df$State <- as.factor(ph_df$State)
 ph_df$Month <- factor(ph_df$Month,levels=months)
 
 #Get CO data from EPA file
-co_df <- read.csv("databases/all_k12_sites_CO.csv")
+co_df <- read.csv("/var/lib/apps/k12_database/all_k12_sites_CO.csv")
 co_df$Year <- as.factor(co_df$Year)
 co_df$State <- as.factor(co_df$State)
 co_df$Month <- factor(co_df$Month,levels=months)
 
 #EPA daily average over Sept 2017
-EPA_data_file <- read.csv("databases/EPA_measures_daily_average_Sept2017.csv")
+EPA_data_file <- read.csv("/var/lib/apps/k12_database/EPA_measures_daily_average_Sept2017.csv")
 
 ####################
 ## VISUALIZATION ##
