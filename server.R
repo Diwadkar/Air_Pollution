@@ -26,21 +26,21 @@ shinyServer(function(input, output) {
 
   output$epa_monitor <- renderImage({
     return(list(
-      src = "databases/EPA_Monitors.png",
+      src = "/var/lib/apps/k12_database/EPA_Monitors.png",
       height= 280,
       filetype = "image/png",
       alt = "EPA Monitors"))}, deleteFile = FALSE)
 
   output$sensor_setup <- renderImage({
     return(list(
-      src = "databases/sensor_setup.png",
+      src = "/var/lib/apps/k12_database/sensor_setup.png",
       height= 200,
       filetype = "image/png",
       alt = "Sensor Package"))}, deleteFile = FALSE)
  
    output$sensor_working <- renderImage({
     return(list(
-      src = "databases/sensor_working.png",
+      src = "/var/lib/apps/k12_database/sensor_working.png",
       height= 200,
       filetype = "image/png",
       alt = "How Sensors Work"))}, deleteFile = FALSE)
@@ -135,7 +135,7 @@ shinyServer(function(input, output) {
   ####################
   output$PhImage <- renderImage({
     return(list(
-      src = "databases/philadelphia_PM.tiff",
+      src = "/var/lib/apps/k12_database/philadelphia_PM.tiff",
       height= 200,
       width = 250,
       filetype = "image/tiff",
@@ -143,7 +143,7 @@ shinyServer(function(input, output) {
   
   output$NYImage <- renderImage({
     return(list(
-      src = "databases/Midtown_Manhattan.tiff",
+      src = "/var/lib/apps/k12_database/Midtown_Manhattan.tiff",
       height= 200,
       width = 250,
       filetype = "image/tiff",
@@ -151,7 +151,7 @@ shinyServer(function(input, output) {
   
   output$LAImage <- renderImage({
     return(list(
-      src = "databases/Los_Angeles_CA.tiff",
+      src = "/var/lib/apps/k12_database/Los_Angeles_CA.tiff",
       height= 200,
       width = 250,
       filetype = "image/tiff",
@@ -159,7 +159,7 @@ shinyServer(function(input, output) {
   
   output$MAImage <- renderImage({
     return(list(
-      src = "databases/Miami_Florida.tiff",
+      src = "/var/lib/apps/k12_database/Miami_Florida.tiff",
       height= 200,
       width = 250,
       filetype = "image/tiff",
@@ -167,7 +167,7 @@ shinyServer(function(input, output) {
   
   output$PRImage <- renderImage({
     return(list(
-      src = "databases/Pierre_SD.tiff",
+      src = "/var/lib/apps/k12_database/Pierre_SD.tiff",
       height= 200,
       width = 250,
       filetype = "image/tiff",
@@ -175,7 +175,7 @@ shinyServer(function(input, output) {
   
   output$BLImage <- renderImage({
     return(list(
-      src = "databases/billings_montana.tiff",
+      src = "/var/lib/apps/k12_database/billings_montana.tiff",
       height= 200,
       width = 250,
       filetype = "image/tiff",
@@ -183,7 +183,7 @@ shinyServer(function(input, output) {
   
   output$SRImage <- renderImage({
     return(list(
-      src = "databases/Shiprock_New Mexico.tiff",
+      src = "/var/lib/apps/k12_database/Shiprock_New Mexico.tiff",
       height= 200,
       width = 250,
       filetype = "image/tiff",
@@ -191,7 +191,7 @@ shinyServer(function(input, output) {
   
   output$POImage <- renderImage({
     return(list(
-      src = "databases/Portland_Oregon.tiff",
+      src = "/var/lib/apps/k12_database/Portland_Oregon.tiff",
       height= 200,
       width = 250,
       filetype = "image/tiff",
