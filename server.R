@@ -23,27 +23,6 @@ shinyServer(function(input, output) {
   output$airqdata <- renderDataTable({all_crowdsourced_data %>%
       dplyr::select("Group", "Name", "Date", "Time", "Site_Type (Indoor, Outdoor)", "Latitude", "Longitude", "PM2.5", "CO", "Comments")
   }, options = list(pageLength=10, searching=FALSE))
-
-  output$epa_monitor <- renderImage({
-    return(list(
-      src = "/var/lib/apps/k12_database/EPA_Monitors.png",
-      height= 280,
-      filetype = "image/png",
-      alt = "EPA Monitors"))}, deleteFile = FALSE)
-
-  output$sensor_setup <- renderImage({
-    return(list(
-      src = "/var/lib/apps/k12_database/sensor_setup.png",
-      height= 200,
-      filetype = "image/png",
-      alt = "Sensor Package"))}, deleteFile = FALSE)
- 
-   output$sensor_working <- renderImage({
-    return(list(
-      src = "/var/lib/apps/k12_database/sensor_working.png",
-      height= 200,
-      filetype = "image/png",
-      alt = "How Sensors Work"))}, deleteFile = FALSE)
    
    
    ####################

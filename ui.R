@@ -31,16 +31,19 @@ shinyUI(fluidPage(
                a("criteria pollutants.", href="https://www3.epa.gov/airquality/cleanair.html"),
                "Reference monitors placed across the United States monitor compliance to air quality legislation.
                The second and third tabs of this app show trends of PM2.5 and CO at eight locations in the United States."),
-             div(style="display: inline-block;", tags$a(imageOutput("epa_monitor", height= "290px"), href="http://pargasite.org/",target="_blank")),
+             #imageOutput("epa_monitor", height= "290px")
+             div(style="display: inline-block;", tags$a(img(src="http://public.himeslab.org/k12_images/EPA_Monitors.png",height="280px",alt="EPA Monitors"), href="http://pargasite.org/",target="_blank")),
              
              h4(p("Portable Pollution Sensors")),
              p("Concern for pollution’s effect on health and broad demand for accessible environmental monitoring have led researchers and manufacturers to develop 
               low-cost, portable pollution sensors. Although these sensors are less accurate and reliable than reference monitors, they provide some information
               on locations that may be of concern to citizens. We assembled our own PM and CO sensors using commercially available components for teaching purposes.
               Students are handed a sensor, Android device and charger to take measures:"),
-             div(style="display: inline-block;", tags$a(imageOutput("sensor_setup", height= "200px"), target="_blank")),
+             #imageOutput("sensor_setup", height= "200px")
+             div(style="display: inline-block;", tags$a(img(src="http://public.himeslab.org/k12_images/sensor_setup.png",height="200px",alt="Sensor Package"), target="_blank")),
              p("Sensors send measures to a smartphone (paired via Bluetooth), and data from all smartphones is gathered in a Google Spreadsheet:"),
-             div(style="display: inline-block;", tags$a(imageOutput("sensor_working", height= "200px"), target="_blank")),
+             #imageOutput("sensor_working", height= "200px")
+             div(style="display: inline-block;", tags$a(img(src="http://public.himeslab.org/k12_images/sensor_working.png",height="200px",alt="How Sensors Work"), target="_blank")),
 
              br(),
              h4(p("Crowdsourced Pollution Measures")),
