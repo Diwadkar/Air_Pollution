@@ -11,7 +11,7 @@ library(RCurl) #to check if url exists
 ##Get groups with corresponding URLs
 #URL <- "https://docs.google.com/spreadsheets/d/1V5J_TuhfZTFBfPcg1JMavzFrbB2vavd3JMNX1f1oAQw/edit#gid=420394624"
 #URL <- "https://docs.google.com/spreadsheets/d/13-F4sAcX5Ph-IKp0W8uTRfT1RmUeEGbwtK7PMVUylws/edit#gid=0"
-gsheet_links <- read.csv("/var/lib/apps/k12_database/gsheet_links.csv", as.is=TRUE)
+gsheet_links <- read.csv("/var/lib/apps/k12_database/gsheet_links.csv", as.is=TRUE) 
 message = NULL
 group_status = FALSE
   
@@ -68,6 +68,9 @@ tf <- melt(all_crowdsourced_data %>% dplyr::select(Group,Name,Latitude,Longitude
 names(tf) <- c("Group", "Name", "Latitude", "Longitude", "Date", "Time", "Site_Type", "Comments", "Variables", "Measurement")
 clrs <- c("#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7","#7570B3", "#E7298A", "#66A61E", "#E6AB02", "#A6761D", "#666666","#8DD3C7","#BEBADA") #CB and Dark2
 
+#Debug new data error
+tf$Measurement <- as.numeric(tf$Measurement)
+tf <- tf %>% dplyr::filter(Measurement <= 100)
 
 ##########################################
 ## Acquiring EPA PM2.5 and CO datasets ##
@@ -135,6 +138,7 @@ scatterplot_func <- function(var, pvar,dataset){
   data <- merge(all_crowdsourced_data,dtt,by=c("Name","Latitude","Longitude","Date","Time")) #Get values from selected input
   sval = rep(0:25,10)
   ggplot(data, aes_string(x=var, y=pvar)) + geom_point(aes(color=Date,shape = Name),size=3) + theme_bw() + scale_shape_manual(values=sval[0:length(data$Name)]) + 
+    scale_x_discrete(name="PM2.5", breaks=c("0","10","15"))+
     theme(legend.text = element_text(size=14),
           axis.title=element_text(size=15),
           title = element_text(size=15),
