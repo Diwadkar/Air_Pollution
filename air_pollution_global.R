@@ -37,6 +37,7 @@ for (i in c(1:dim(gsheet_links)[[1]])) {
   if(dim(curr_data)[1]!=0){
     group_status = TRUE
     curr_data <- mutate(curr_data, Group = gsheet_links[i, "Group"])
+    curr_data$PM2.5 <- as.character(curr_data$PM2.5)
     all_crowdsourced_data <- bind_rows(all_crowdsourced_data, curr_data)
   } else{
     next
