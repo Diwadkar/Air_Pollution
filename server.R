@@ -37,7 +37,7 @@ shinyServer(function(input, output) {
      if (isFALSE(group_status)){
        x <- tf %>% dplyr::filter(Date %in% all_dates, Name %in% input$name, Variables == input$type)
      } else if (isTRUE(group_status)){
-       x <- tf %>% dplyr::filter(Date %in% all_dates, Name %in% input$name, Variables == input$type,Group %in% input$group)
+       x <- tf %>% dplyr::filter(Date %in% all_dates, Name %in% input$name, Variables == input$type, Group %in% input$group)
      }
    })
    
@@ -75,7 +75,9 @@ shinyServer(function(input, output) {
   
   # Bivariate Scatterplot
   output$Scatplot <- renderPlot({
-    scatterplot_func("PM2.5","CO",data())})
+    #scatterplot_func("PM2.5","CO",data())
+    scatterplot_func("PM2.5","CO")
+    })
   
   # Barplot for EPA cities
   output$kbarPlot <- renderPlot({
@@ -92,7 +94,7 @@ shinyServer(function(input, output) {
   ##Group UI
   observe({
     if(isTRUE(group_status)){
-      output$Group <- renderUI({selectInput("group","Select Group:", choices=unique(all_crowdsourced_data$Group), multiple=TRUE, selected=unique(all_crowdsourced_data$Group))})
+      output$Group <- renderUI({pickerInput("group","Select School:", choices=unique(as.character(all_crowdsourced_data$Group)), multiple=TRUE, selected="J R Masterman")})
     }})
   
   #Name UI - select names to display accroding to group selected

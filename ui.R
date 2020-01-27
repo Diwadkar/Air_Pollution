@@ -2,6 +2,7 @@ library(shiny)
 library(shinythemes)
 library(leaflet)
 library(ggiraph)
+library(shinyWidgets)
 
 #Set choices of cities for UI
 cities <- c("Los Angeles, CA"="CA", "Miami, FL"="FL", "Billings, MO"="MO", "Standing Rock, NM"="NM",
@@ -117,6 +118,6 @@ shinyUI(fluidPage(
              div(style="display: inline-block;",plotOutput("pdistBoxplot",height="300px",width = "300px")),
              div(style="display: inline-block;",plotOutput("pdisHist",height="300px",width = "500px")),br(), hr(),
              h4(p("Bivariate Plot")),
-             div(style="display: inline-block;",plotOutput("Scatplot",height="500px",width = "700px")),br(), br()))
+             div(style="display: inline-block;",plotOutput("Scatplot",height="500px",width = "900px")),br(), br()))
              
 ))
